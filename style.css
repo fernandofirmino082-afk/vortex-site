@@ -76,20 +76,10 @@ nav a:hover {
    3. HERO SECTION (TOPO PRINCIPAL - 100% CENTRALIZADO)
    ========================================================================== */
 .hero {
-    /* 1. Remover o degradê e usar a cor de fundo padrão do seu site */
-    background: #121212; 
-    
-    /* 2. Alterar a altura para ajustar automaticamente ao conteúdo */
-    min-height: auto; 
-    
-    /* 3. Adicionar estilo de "card" para combinar com a parte de baixo */
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px auto; /* Centraliza o card na tela */
-    max-width: 90%;    /* Limita a largura para não esticar demais */
-    
-    /* Se a parte de baixo tiver borda fina, adicione abaixo */
-    border: 1px solid #222; 
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 5%;
 }
 
 .hero-container {
