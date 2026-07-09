@@ -454,12 +454,7 @@ nav a:hover {
     background: #d60000; /* Vermelho levemente mais escuro ao passar o mouse */
     transform: scale(1.08);
 }
-button,
-button:focus,
-button:active {
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
+
 
 /* ============================== */
 /* FORÇA O ÍCONE DE PLAY A FICAR BRANCO */
