@@ -97,6 +97,13 @@ nav a:hover {
     padding: 20px;
     border: 1px solid #222;
 }
+.card-container {
+    background-color: #121212; /* Cor de fundo escura, a mesma do player */
+    border: 1px solid #222;    /* Borda sutil para dar profundidade */
+    border-radius: 20px;       /* Bordas arredondadas consistentes */
+    padding: 20px;             /* Espaçamento interno */
+    margin: 15px;              /* Espaçamento externo para separar das bordas */
+}
 
 .hero-container {
     max-width: 1000px;
