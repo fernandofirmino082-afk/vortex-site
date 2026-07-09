@@ -90,8 +90,7 @@ nav a:hover {
     
     /* Se a parte de baixo tiver borda fina, adicione abaixo */
     border: 1px solid #222; 
-}
-.card-estilo {
+}.card-estilo {
     background: #121212;
     border-radius: 15px;
     padding: 20px;
