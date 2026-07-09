@@ -19,9 +19,7 @@ body {
 
 span { 
     color: #e11d1d; 
-}
-
-/* ==========================================================================
+}/* ==========================================================================
    2. NAVBAR (BARRA DE NAVEGAÇÃO)
    ========================================================================== */
 .navbar {
@@ -74,7 +72,6 @@ nav a:hover {
 .btn-nav:hover {
     background-color: #ff2a2a;
 }
-
 /* ==========================================================================
    3. HERO SECTION (TOPO PRINCIPAL - 100% CENTRALIZADO)
    ========================================================================== */
@@ -450,15 +447,9 @@ nav a:hover {
     cursor: pointer;
 }
 
-
-/* ============================== */
-/* FORÇA O ÍCONE DE PLAY A FICAR BRANCO */
-/* ============================== */
-.player-buttons .controls i,
-.player-buttons .controls svg,
-.player-buttons .controls span {
-    color: #ffffff !important;
-    fill: #ffffff !important;
+.player-buttons .controls:hover {
+    background: #d60000; /* Vermelho levemente mais escuro ao passar o mouse */
+    transform: scale(1.08);
 }
 
 .tracklist-container {
@@ -1160,9 +1151,7 @@ nav a:hover {
     .player-buttons {
         justify-content: center;
     }
-}
-
-/* CONTAINER DO POP-UP (COMEÇA ESCONDIDO) */
+}/* CONTAINER DO POP-UP (COMEÇA ESCONDIDO) */
 .social-popup {
     position: fixed;
     bottom: -120px; /* Joga ele para baixo da tela */
@@ -1223,9 +1212,7 @@ nav a:hover {
     color: #8a8a8a;
     font-size: 11px;
     font-family: sans-serif;
-}
-
-/* ==========================================================================
+}/* ==========================================================================
    AJUSTE EXCLUSIVO PARA TELAS DE CELULAR
    ========================================================================== */
 @media (max-width: 480px) {
@@ -1256,9 +1243,7 @@ nav a:hover {
         width: 32px;
         height: 32px;
     }
-}
-
-/* ==========================================================================
+}/* ==========================================================================
    ELEMENTO SCROLL INDICATOR (100% CENTRALIZADO)
    ========================================================================== */
 .scroll-indicator-container {
@@ -1319,9 +1304,8 @@ nav a:hover {
         border-left-width: 2.5px;
         border-bottom-width: 2.5px;
     }
-}
-
-/* ==========================================================================
+    
+}/* ==========================================================================
    LAYOUT CENTRALIZADO DA HERO SECTION (DESKTOP E MOBILE)
    ========================================================================== */
 
@@ -1359,9 +1343,7 @@ nav a:hover {
     max-width: 540px;         /* Limita o tamanho do grid para ele ficar centralizado e elegante */
     margin: 35px auto;        /* Afasta dos textos de cima e centraliza o bloco na tela */
     text-align: left;         /* MANTENHA LEFT: O texto alinhado com o ícone fica muito mais premium */
-}
-
-/* ==========================================================================
+}/* ==========================================================================
    5. CENTRALIZAÇÃO DA SEÇÃO DE PRÉVIAS
    ========================================================================== */
 .section-header {
@@ -1371,6 +1353,60 @@ nav a:hover {
     text-align: center;     /* Garante centralização do texto */
     width: 100%;
     margin: 0px 0 30px 0;  /* Espaçamento superior e inferior para separar do resto */
+}/* Garante que o container tenha posição relativa para os raios ficarem dentro */
+.hero {
+    position: sticky;
+    background-color: #000;
+    /* Isso cria um foco de luz vindo do centro, muito discreto */
+    background: radial-gradient(circle at 50% 50%, #1a0000 0%, #000 70%);
+
+}
+/* Isso fará com que tudo fique lado a lado */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o Contato e o Botão */
 }
 
-/* Garante que o container tenha posição relativa */
+/* 1. Regra Global (Funciona para Celular E Computador) */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(8, 8, 8, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky; /* O STICKY FICA AQUI FORA */
+    top: 0;           /* O STICKY FICA AQUI FORA */
+    z-index: 1000;
+    border-bottom: 1px solid #101010;
+}
+
+/* 2. Ajustes exclusivos para Celular */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column !important;
+        padding: 15px 10px !important;
+        gap: 10px !important;
+    }
+}
+
+    /* Agrupa Contato e Botão */
+    .header-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px; /* Espaço entre o link e o botão */
+    }
+
+    /* Ajuste fino dos elementos */
+    .logo {
+        font-size: 1.2rem !important; /* Logo levemente menor para mobile */
+    }
+
+    .btn-comprar {
+        padding: 8px 16px !important; /* Botão com um tamanho confortável para o dedo */
+        font-size: 0.85rem !important;
+    }
