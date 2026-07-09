@@ -1157,13 +1157,9 @@ nav a:hover {
         flex-direction: column;
         text-align: center;
     }
-    .player-buttons .controls {
-    /* ... seu código atual ... */
-    background: #ff0000;
-    
-    /* Adicione isto para remover o brilho laranja ao tocar */
-    -webkit-tap-highlight-color: transparent;
-}
+    .player-buttons {
+        justify-content: center;
+    }
 }/* CONTAINER DO POP-UP (COMEÇA ESCONDIDO) */
 .social-popup {
     position: fixed;
