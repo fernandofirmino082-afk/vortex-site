@@ -76,11 +76,24 @@ nav a:hover {
    3. HERO SECTION (TOPO PRINCIPAL - 100% CENTRALIZADO)
    ========================================================================== */
 .hero {
-    min-height: 80vh;
+    /* 1. Removemos os gradientes que criam o fundo "sujo" */
+    background-color: #121212; /* Use a mesma cor de fundo que você usa no player */
+    
+    /* 2. Deixe o tamanho flexível para não ocupar a tela toda */
+    min-height: auto; 
+    
+    /* 3. Adicione bordas arredondadas para dar o aspecto de "bloco organizado" */
+    border-radius: 15px; 
+    
+    /* 4. Ajuste de espaçamento para ficar igual ao player */
+    padding: 30px; 
+    margin: 20px; /* Margem para o bloco não colar nas bordas da tela */
+    
+    /* Mantém o alinhamento que já está funcionando */
     display: flex;
     align-items: center;
-    padding: 40px 5%;
-    background: radial-gradient(circle at top center, rgba(225,29,29,0.1), transparent 60%);
+    justify-content: center;
+    flex-direction: column; /* Caso você queira os itens centralizados verticalmente */
 }
 
 .hero-container {
