@@ -1,1380 +1,554 @@
-/* ==========================================================================
-   1. RESET DE ESTILOS E CONFIGURAÇÕES GLOBAIS
-   ========================================================================== */
-html {
-    scroll-behavior: smooth;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #080808; /* Isso devolve o fundo preto */
-    color: #ffffff;            /* Isso garante que os textos padrão sejam brancos */
-    font-family: 'Montserrat', sans-serif;
-}
-
-span { 
-    color: #e11d1d; 
-}
-
-/* ==========================================================================
-   2. NAVBAR (BARRA DE NAVEGAÇÃO)
-   ========================================================================== */
-.navbar {
-    display: flex;
-    flex-wrap: wrap;       /* Isso é o segredo! Permite que os itens desçam de linha sem quebrar o layout */
-    justify-content: center; /* Centraliza tudo quando estiverem em colunas (mobile) */
-    align-items: center;
-    gap: 15px;             /* Adiciona um espaçamento fixo entre eles */
-    padding: 10px;
-}
-
-.logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    letter-spacing: 1px;
-    color: #ffffff; /* Garante que a logo fique branca */
-    text-decoration: none;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-}
-
-nav a {
-    color: #aaa;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    transition: color 0.3s;
-}
-
-nav a:hover { 
-    color: #fff; 
-}
-
-.btn-nav {
-    background-color: #e11d1d;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.85rem;
-    border-radius: 4px;
-    transition: background 0.2s;
-    margin-left: 20px; /* Dá um espacinho extra entre os links e o botão */
-}
-
-.btn-nav:hover {
-    background-color: #ff2a2a;
-}
-
-/* ==========================================================================
-   3. HERO SECTION (TOPO PRINCIPAL - 100% CENTRALIZADO)
-   ========================================================================== */
-.hero {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    padding: 40px 5%;
-    background: radial-gradient(circle at top center, rgba(225,29,29,0.1), transparent 60%);
-}
-
-.hero-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;             /* Alterado de grid para flex */
-    flex-direction: column;    /* Coloca a imagem em cima e texto embaixo */
-    align-items: center;       /* Centraliza horizontalmente */
-    text-align: center;        /* Centraliza os textos */
-    gap: 30px;
-}
-
-.hero-image {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 420px;
-    filter: drop-shadow(0 0 30px rgba(225, 29, 29, 0.25));
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;       /* Força botão e selo de segurança irem para o meio */
-    width: 100%;
-}
-
-.tagline {
-    color: #e11d1d;
-    font-weight: 700;
-    letter-spacing: 3px;
-    font-size: 0.9rem;
-}
-
-.hero-content h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5.5rem;
-    line-height: 0.9;
-    margin: 10px 0;
-}
-
-.sub-tags {
-    font-size: 0.85rem;
-    color: #ccc;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-.description {
-    font-size: 1.2rem;
-    color: #eee;
-    margin-bottom: 30px;
-    max-width: 700px;          /* Evita que a frase fique muito longa nas laterais */
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 40px;
-    max-width: 540px;
-    margin: 25px auto 40px auto; /* Afasta do título e centraliza o bloco na tela */
-    text-align: left;            /* Mantém o texto alinhado com o ícone, não centralizado */
-}
-
-.feature-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 11px;
-    color: #aaaaaa;
-}
-
-.feature-item strong {
-    color: #ffffff;
-    display: block;
-    margin-bottom: 2px;
-    font-size: 12px;
-}
-
-.feature-item i {
-    font-size: 20px;
-    color: #e11d1d;
-    width: 25px;
-    text-align: center;
-}
-
-.price-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;       /* Centraliza o preço e o POR APENAS */
-    gap: 5px;
-    margin-bottom: 15px;
-}
-
-.por-apenas {
-    color: #e11d1d;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.price {
-    font-size: 3.5rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.btn-cta {
-    background: linear-gradient(180deg, #e11d1d 0%, #b31212 100%);
-    color: white;
-    display: flex;             /* Transforma o botão para alinhar ícone/texto melhor */
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;            /* O auto nas laterais força o centro exato */
-    padding: 18px 40px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 380px;
-    box-shadow: 0 4px 20px rgba(225, 29, 29, 0.4);
-    text-transform: uppercase;
-    transition: transform 0.2s, background 0.2s;
-}
-
-.btn-cta:hover {
-    transform: scale(1.02);
-}
-
-.btn-cta i {
-    margin-right: 10px;
-}
-
-.security {
-    display: flex;
-    align-items: center;
-    justify-content: center;   /* Mudou de flex-start para center */
-    gap: 8px;
-    font-size: 12px;
-    color: #888;
-    margin-top: 15px;
-    width: 100%;
-}
-
-.security i {
-    color: #e11d1d;
-}
-
-/* ==========================================================================
-   4. SCROLL INDICATOR (SETAS BRANCAS CENTRALIZADAS)
-   ========================================================================== */
-.scroll-indicator-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 35px;
-    cursor: pointer;
-    gap: 2px;
-}
-
-.scroll-arrow {
-    width: 16px;
-    height: 16px;
-    border-left: 3px solid #ffffff;
-    border-bottom: 3px solid #ffffff;
-    transform: rotate(-45deg);
-    opacity: 0.4;
-    animation: arrowGlowMove 1.8s infinite ease-in-out;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
-}
-
-.scroll-arrow:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-@keyframes arrowGlowMove {
-    0% { transform: translateY(0) rotate(-45deg); opacity: 0.3; filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)); }
-    50% { transform: translateY(8px) rotate(-45deg); opacity: 1; filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); }
-    100% { transform: translateY(0) rotate(-45deg); opacity: 0.3; filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)); }
-}
-
-/* ==========================================================================
-   4. SISTEMA DE TRACKLIST E PLAYER INTERATIVO
-   ========================================================================== */
-.player-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.player-section .section-header {
-    text-align: left !important;
-    margin-bottom: 25px;
-}
-
-.player-section h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    text-align: left !important;
-    letter-spacing: 1px;
-    display: block !important;
-    width: auto !important;
-    margin: 0 !important;
-}
-
-.player-section .sub-title {
-    text-align: left !important;
-    display: block !important;
-    color: #888888;
-    margin-bottom: 0px;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.player-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 30px;
-    background: #060606;
-    border: 1px solid #121212;
-    padding: 30px;
-    border-radius: 12px;
-    align-items: start;
-}
-
-.main-player {
-    background: #0b0b0b !important;
-    border: 1px solid #141414 !important;
-    border-radius: 12px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    text-align: left;
-    width: 100%;
-}
-
-.main-player .album-art {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #e11d1d !important;
-    box-shadow: 0 0 25px rgba(225, 29, 29, 0.35) !important;
-    flex-shrink: 0;
-}
-
-.player-controls-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.track-info h3 {
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 0;
-}
-
-.track-info p {
-    color: #666;
-    font-size: 14px;
-    margin: 4px 0 0 0;
-}
-
-.progress-container {
-    margin-top: 10px;
-    width: 100%;
-}
-
-.waveform-container {
-    position: relative;
-    width: 100%;
-    height: 45px;
-    user-select: none;
-    margin-bottom: 8px;
-    container-type: inline-size;
-}
-
-.wave-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.wave-bg {
-    stroke: #262626; 
-}
-
-.waveform-progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%; 
-    overflow: hidden;
-    transition: width 0.1s linear;
-}
-
-.wave-active {
-    width: 100cqw !important;
-    max-width: none !important;
-    stroke: #e11d1d;
-    filter: drop-shadow(0 0 2px rgba(225, 29, 29, 0.6));
-}
-
-.time-display {
-    font-size: 0.85rem;
-    color: #666;
-    font-weight: 600;
-}
-
-.current-time {
-    color: #ffffff;
-}
-
-.player-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.player-buttons button {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.player-buttons button:hover {
-    transform: scale(1.15);
-    color: #e11d1d;
-}
-
-.player-buttons .controls {
-    background: #ff0000; /* Vermelho puro e vivo */
-    color: #fff;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6); /* Brilho também em vermelho puro */
-    border: none; /* Garante que não tenha borda nativa interferindo */
-    cursor: pointer;
-}
-
-.player-buttons .controls:hover {
-    background: #d60000; /* Vermelho levemente mais escuro ao passar o mouse */
-    transform: scale(1.08);
-}
-
-/* ============================== */
-/* FORÇA O ÍCONE DE PLAY A FICAR BRANCO */
-/* ============================== */
-.player-buttons .controls i,
-.player-buttons .controls svg,
-.player-buttons .controls span {
-    color: #ffffff !important;
-    fill: #ffffff !important;
-}
-
-.tracklist-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-
-.tracklist {
-    background: #060606 !important;
-    border: 1px solid #121212 !important;
-    border-radius: 10px !important;
-    padding: 0 !important;
-    overflow: hidden;
-}
-
-.track-item {
-    display: flex !important;
-    justify-content: flex-start !important; 
-    align-items: center !important;
-    padding: 18px 25px !important;
-    background: transparent !important;
-    color: #ffffff !important;
-    font-weight: 600 !important;
-    border: none !important;
-    border-bottom: 1px solid #111111 !important;
-    border-radius: 0 !important;
-    transition: all 0.25s ease !important;
-}
-
-.track-item:last-child {
-    border-bottom: none !important;
-}
-
-.track-item span:first-child {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    margin-right: 25px !important;
-    font-size: 0.95rem !important;
-}
-
-.track-item .time {
-    color: #666666 !important;
-    margin-left: auto !important;
-    margin-right: 15px !important;
-    font-size: 0.9rem !important;
-}
-
-.track-item:hover {
-    background: rgba(255, 255, 255, 0.02) !important;
-}
-
-.track-item.active {
-    background: linear-gradient(90deg, rgba(225, 29, 29, 0.12) 0%, rgba(225, 29, 29, 0.02) 100%) !important;
-    border: 1px solid rgba(225, 29, 29, 0.4) !important;
-    box-shadow: inset 0 0 15px rgba(225, 29, 29, 0.08), 0 0 15px rgba(225, 29, 29, 0.1) !important;
-    color: #e11d1d !important;
-    border-radius: 8px !important;
-    margin: 3px 5px !important;
-}
-
-.track-item.active span:first-child {
-    background: #000000 !important;
-    color: #e11d1d !important;
-    border: 1px solid rgba(225, 29, 29, 0.3) !important;
-    padding: 4px 12px !important;
-    border-radius: 6px !important;
-    font-size: 0.9rem !important;
-    margin-right: 20px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-.track-item.active .time {
-    color: #e11d1d !important;
-}
-
-.equalizer {
-    display: flex;
-    align-items: flex-end;
-    gap: 3px;
-    width: 16px;
-    height: 14px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.track-item.active .equalizer {
-    opacity: 1;
-}
-
-.equalizer div {
-    background-color: #e11d1d;
-    width: 2px;
-    height: 100%;
-    border-radius: 1px;
-    animation: waveBounce 0.8s ease-in-out infinite alternate;
-}
-
-.equalizer div:nth-child(1) { animation-duration: 0.4s; }
-.equalizer div:nth-child(2) { animation-duration: 0.7s; animation-delay: 0.15s; }
-.equalizer div:nth-child(3) { animation-duration: 0.5s; animation-delay: 0.3s; }
-.equalizer div:nth-child(4) { animation-duration: 0.6s; animation-delay: 0.05s; }
-
-@keyframes waveBounce {
-    0% { height: 20%; }
-    100% { height: 100%; }
-}
-
-.btn-see-all {
-    background: #090909;
-    border: 1px solid #151515;
-    color: #666;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: 0.2s;
-    text-transform: uppercase;
-}
-
-.btn-see-all:hover {
-    background: #111;
-    color: #fff;
-    border-color: #333;
-}
-
-/* ==========================================================================
-   5. SEÇÃO BENEFÍCIOS
-   ========================================================================== */
-.benefits-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.benefits-section h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
-    margin-bottom: 40px;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.benefit-card {
-    background-color: #111;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #222;
-    transition: transform 0.3s, border-color 0.3s, background 0.3s;
-    text-align: center;
-}
-
-.benefit-card:hover {
-    border-color: #e11d1d;
-    background: #090909;
-}
-
-.benefit-icon {
-    color: #e11d1d !important;
-    font-size: 32px !important;
-    display: block !important;
-    text-align: center !important;
-    margin-bottom: 15px !important;
-    width: 100% !important;
-}
-
-.benefit-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 1px;
-    color: #fff;
-    margin: 15px 0 10px 0;
-}
-
-.benefit-card p {
-    font-size: 14px;
-    color: #888;
-    line-height: 1.6;
-}
-
-/* ==========================================================================
-   6. GRID DE INFORMAÇÕES GERAIS (RECEBE + FAQ)
-   ========================================================================== */
-.main-info-section {
-    padding: 40px 20px 80px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.info-grid-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; 
-    gap: 25px;
-    align-items: start;
-}
-
-.receive-column, .faq-column {
-    background: #050505;
-    border: 1px solid #121212;
-    border-radius: 12px;
-    padding: 40px 35px;
-}
-
-.receive-column h2, .faq-column h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
-}
-
-/* Alinhamento da Lista + Imagem 3D da Pasta */
-.receive-content-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.receive-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    flex: 1;
-}
-
-.receive-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.receive-item .icon-box {
-    background: transparent !important; 
-    color: #e11d1d !important;
-    font-size: 1.2rem !important; 
-    width: 26px !important; 
-    height: auto !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 !important;
-}
-
-.receive-item .icon-box i {
-    color: #e11d1d !important;
-}
-
-.receive-item .text h3 {
-    margin: 0;
-    font-size: 14px; 
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-}
-
-.receive-item .text p {
-    margin: 0;
-    font-size: 12px; 
-    color: #666;
-    line-height: 1.3;
-}
-
-.receive-image-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.folder-3d-img {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
-}
-
-/* Bloco FAQ Accordion */
-.faq-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.faq-item {
-    border-bottom: 1px solid #151515;
-    background: transparent;
-    padding: 0;
-}
-
-.faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    color: #aaa;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.faq-question:hover {
-    color: #fff;
-}
-
-.faq-question span {
-    font-size: 0.75rem;
-    color: #444;
-}
-
-.faq-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
-
-.faq-content p {
-    padding-bottom: 15px;
-    color: #666;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.btn-faq-more {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #444;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-top: 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    text-align: left;
-}
-
-.btn-faq-more:hover {
-    color: #fff;
-}
-
-/* ==========================================================================
-   7. BANNER HORIZONTAL INFERIOR DE CONVERSÃO (CROWD BACKGROUND)
-   ========================================================================== */
-.cta-bottom-banner { 
-    background-color: #090909; /* Tom exato de preto dos seus blocos superiores */
-    border: 1px solid #131313;  /* Borda sutil idêntica à dos seus outros cards */
-    border-radius: 12px; 
-    padding: 45px 50px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    gap: 40px; 
-    box-shadow: none; /* Remove qualquer sombra artificial */
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-banner-left { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 8px; 
-    max-width: 65%; 
-}
-
-.cta-banner-tagline { 
-    color: #e11d1d; 
-    font-size: 0.85rem; 
-    font-weight: 700; 
-    letter-spacing: 3px; 
-}
-
-.cta-banner-left h2 { 
-    font-family: 'Bebas Neue', sans-serif; 
-    font-size: 3.5rem; 
-    line-height: 1; 
-    letter-spacing: 1px; 
-}
-
-.cta-banner-desc { 
-    color: #aaa; 
-    font-size: 0.95rem; 
-    line-height: 1.5; 
-}
-
-.cta-banner-right { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 12px; 
-    min-width: 280px; 
-}
-
-.cta-banner-price-box { 
-    text-align: center; 
-}
-
-.cta-banner-price-box .price-label { 
-    font-size: 0.75rem; 
-    color: #444; 
-    letter-spacing: 2px; 
-    font-weight: 700;
-}
-
-.cta-banner-price-box .card-price { 
-    font-family: 'Bebas Neue', sans-serif; 
-    font-size: 4rem; 
-    color: #fff; 
-    line-height: 1; 
-}
-
-.btn-card-buy { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 10px;
-    background: #e11d1d; 
-    color: white; 
-    padding: 16px 35px; 
-    font-size: 1.1rem; 
-    font-weight: 700; 
-    text-decoration: none; 
-    border-radius: 6px; 
-    text-align: center; 
-    text-transform: uppercase; 
-    width: 100%; 
-    box-shadow: 0 4px 20px rgba(225, 29, 29, 0.4); 
-    transition: transform 0.2s, background 0.2s; 
-}
-
-.btn-card-buy:hover { 
-    transform: scale(1.02); 
-    background: #ff2a2a; 
-}
-
-.security-badge-mini { 
-    font-size: 0.75rem; 
-    color: #555; 
-    display: flex; 
-    align-items: center; 
-    gap: 6px; 
-}
-
-/* ==========================================================================
-   8. RODAPÉ DE SEGURANÇA (SELOS INTERNOS)
-   ========================================================================== */
-.security-footer {
-    border-top: 1px solid #101010;
-    background: #040404;
-    padding: 40px 20px;
-}
-
-/* CONTAINER PAI DO RODAPÉ */
-.footer-badges-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 50px auto 30px auto;
-    padding: 0 20px;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* ALINHAMENTO DE CADA BLOCO */
-.badge-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex: 1;
-    min-width: 230px;
-}
-
-/* A CAIXINHA ESCURA DO ÍCONE */
-.badge-icon-box {
-    width: 46px;
-    height: 46px;
-    background-color: #0e0e0e; /* Preto suave para destacar do fundo do site */
-    border: 1px solid #1a1a1a;  /* Borda sutil de relevo */
-    border-radius: 10px;        /* Arredondamento do modelo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-/* ESTILO DO ÍCONE DENTRO DA CAIXINHA */
-.badge-icon-box i {
-    color: #ffffff; /* Branco para dar contraste puro */
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* GAVETA DOS TEXTOS */
-.badge-text {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-/* TÍTULO EM CAIXA ALTA */
-.badge-title {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-}
-
-/* SUBTÍTULO EM CINZA FOSCO */
-.badge-subtitle {
-    color: #8a8a8a; /* Tira o vermelho antigo e deixa o cinza elegante do modelo */
-    font-size: 11px;
-    font-weight: 400;
-}
-
-
-/* ==========================================================================
-   9. INTERFACE COMPLETA DO MODAL DE FAIXAS
-   ========================================================================== */
-.modal-overlay {
-    display: none; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.92); 
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; 
-    padding: 20px;
-}
-
-.modal-content {
-    background-color: #0b0b0b; 
-    padding: 40px 30px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 480px;
-    position: relative;
-    border: 1px solid #181818;
-}
-
-.modal-content h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-    color: #e11d1d;
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    color: #444;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-modal:hover {
-    color: #fff; 
-}
-
-.modal-tracklist {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-#modal-faixas .track-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 15px;
-    background: #111 !important;
-    border: 1px solid #161616 !important;
-    border-radius: 6px;
-    color: #fff;
-}
-
-#modal-faixas .track-item span.time {
-    margin-left: auto;
-    margin-right: 15px;
-    color: #e11d1d; 
-}
-
-.btn-modal-buy {
-    display: block;
-    background-color: #e11d1d;
-    color: white;
-    padding: 16px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 25px;
-    transition: background 0.2s;
-}
-
-.btn-modal-buy:hover {
-    background: #ff2a2a;
-}
-
-/* ==========================================================================
-   10. MEDIA QUERIES (RESPONSIVIDADE COMPLETA)
-   ========================================================================== */
-@media (max-width: 1024px) {
-    .info-grid-container {
-        grid-template-columns: 1fr;
-    }
-    .cta-bottom-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px;
-    }
-    .cta-banner-left {
-        max-width: 100%;
-    }
-    .cta-banner-right {
-        width: 100%;
-    }
-    .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-container, .player-grid {
-        grid-template-columns: 1fr;
-    }
-    .receive-content-inner {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .folder-3d-img {
-        max-width: 220px;
-    }
-    .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .footer-badges-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    .hero-content h1 {
-        font-size: 4rem;
-    }
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    .benefits-section h2 {
-        font-size: 2.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .benefits-grid, .footer-badges-container {
-        grid-template-columns: 1fr;
-    }
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    nav {
-        margin-bottom: 5px;
-    }
-    .hero-content h1 {
-        font-size: 3.2rem;
-    }
-    .main-player {
-        flex-direction: column;
-        text-align: center;
-    }
-    .player-buttons {
-        justify-content: center;
-    }
-}
-
-/* CONTAINER DO POP-UP (COMEÇA ESCONDIDO) */
-.social-popup {
-    position: fixed;
-    bottom: -120px; /* Joga ele para baixo da tela */
-    left: 20px;
-    background-color: #0e0e0e;
-    border: 1px solid #1a1a1a;
-    border-radius: 10px;
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    z-index: 99999;
-    transition: bottom 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    max-width: 320px;
-}
-
-/* QUANDO O JAVASCRIPT ATIVA, ELE SOBE */
-.social-popup.show {
-    bottom: 20px; /* Sobe para o canto visível */
-}
-
-.social-popup-icon {
-    width: 36px;
-    height: 36px;
-    background-color: #151515;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.social-popup-icon i {
-    color: #ff2a2a;
-    font-size: 16px;
-}
-
-.social-popup-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.social-popup-text {
-    color: #ffffff;
-    font-size: 12px;
-    margin: 0;
-    line-height: 1.4;
-    font-family: sans-serif;
-}
-
-.social-popup-text strong {
-    color: #ff2a2a;
-}
-
-.social-popup-time {
-    color: #8a8a8a;
-    font-size: 11px;
-    font-family: sans-serif;
-}
-
-/* ==========================================================================
-   AJUSTE EXCLUSIVO PARA TELAS DE CELULAR
-   ========================================================================== */
-@media (max-width: 480px) {
-    .social-popup {
-        left: 16px;
-        right: 16px;
-        max-width: none;    /* Desativa a largura fixa do desktop */
-        padding: 10px 14px; /* Diminui o espaçamento interno para poupar tela */
-        gap: 10px;          /* Aproxima o ícone do texto */
-        bottom: -150px;     /* Garante que ele fique bem escondido antes de subir */
-    }
-
-    /* Ajusta para ele subir centralizado e bonito */
-    .social-popup.show {
-        bottom: 16px; 
-    }
-
-    /* Deixa as fontes um pelinho menores para caber tudo sem quebrar linha bizarramente */
-    .social-popup-text {
-        font-size: 11px;
-    }
-
-    .social-popup-time {
-        font-size: 10px;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX VOL.1 - 20 Trap Beats</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">VORTEX <span>VOL.1</span></div>
+        <nav>
+            <div class="header-right"></div>
+            <a href="https://instagram.com/eunando082" target="_blank" rel="noopener noreferrer">CONTATO</a>
+        <a href="https://pay.cakto.com.br/i5j4m5t_954325" class="btn-nav" target="_blank" rel="noopener noreferrer">COMPRAR AGORA</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <!-- Correção: Caminho local removido para evitar quebra de imagem na web -->
+                <img src="capa-vortex1.png" alt="Vortex Vol.1 Box">
+            </div>
+            <div class="hero-content">
+                <p class="tagline">20 TRAP BEATS</p>
+                <h1>VORTEX VOL.1</h1>
+                <p class="sub-tags">HOOD TRAP • DARK TRAP • PHILLY DRILL • MELODIC TRAP</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-wave-square"></i> <div><strong>BEATS</strong><br>Mixagem de alta qualidade</div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-ban"></i> <div><strong>SEM TAGS</strong><br>100% livres para uso</div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-alt"></i> <div><strong>KEY & BPM</strong><br>Pastas organizadas por tom e bpm</div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-download"></i> <div><strong>DOWNLOAD</strong><br>Imediato</div>
+                    </div>
+                </div>
+
+                <div class="price-box">
+                    <span class="por-apenas">POR APENAS</span>
+                    <div class="price">R$ 40,00</div>
+                    <a href="https://pay.cakto.com.br/i5j4m5t_954325" class="btn-cta" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-shopping-cart"></i> COMPRAR AGORA
+                    </a>
+                    <span class="security">
+                        <i class="fas fa-shield-alt"></i> Compra 100% segura
+                    </span>
+                <!-- Setas de rolagem (Scroll Indicator) -->
+<div class="scroll-indicator-container">
+    <div class="scroll-arrow"></div>
+    <div class="scroll-arrow"></div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beats" class="player-section">
+        <div class="section-header">
+            <h2>OUÇA AS <span>PRÉVIAS</span></h2>
+        </div>
+        
+        <div class="player-grid">
+            <div class="main-player">
+                <img src="capapreview.png" alt="Vortex Vol.1" class="album-art">
+                
+                <div class="player-controls-wrapper">
+                    <div class="track-info">
+                        <h3>01 - HOOD TRAP</h3>
+                        <p>Prod. by eunando082</p>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="waveform-container">
+                            <svg class="wave-svg wave-bg" viewBox="0 0 400 60" preserveAspectRatio="none">
+                                <path d="M4,25v10 M12,20v20 M20,22v16 M28,15v30 M36,10v40 M44,5v50 M52,12v36 M60,18v24 M68,8v44 M76,15v30 M84,22v16 M92,5v50 M100,10v40 M108,18v24 M116,12v36 M124,20v20 M132,25v10 M140,22v16 M148,15v30 M156,8v44 M164,12v36 M172,5v50 M180,10v40 M188,18v24 M196,15v30 M204,20v20 M212,25v10 M220,22v16 M228,12v36 M236,5v50 M244,8v44 M252,15v30 M260,18v24 M268,10v40 M276,20v20 M284,25v10 M292,22v16 M300,15v30 M308,12v36 M316,5v50 M324,8v44 M332,18v24 M340,10v40 M348,15v30 M356,20v20 M364,25v10 M372,22v16 M380,18v24 M388,26v8 M396,28v4" stroke-width="3.5" stroke-linecap="round"/>
+                            </svg>
+                            <div class="waveform-progress">
+                                <svg class="wave-svg wave-active" viewBox="0 0 400 60" preserveAspectRatio="none">
+                                    <path d="M4,25v10 M12,20v20 M20,22v16 M28,15v30 M36,10v40 M44,5v50 M52,12v36 M60,18v24 M68,8v44 M76,15v30 M84,22v16 M92,5v50 M100,10v40 M108,18v24 M116,12v36 M124,20v20 M132,25v10 M140,22v16 M148,15v30 M156,8v44 M164,12v36 M172,5v50 M180,10v40 M188,18v24 M196,15v30 M204,20v20 M212,25v10 M220,22v16 M228,12v36 M236,5v50 M244,8v44 M252,15v30 M260,18v24 M268,10v40 M276,20v20 M284,25v10 M292,22v16 M300,15v30 M308,12v36 M316,5v50 M324,8v44 M332,18v24 M340,10v40 M348,15v30 M356,20v20 M364,25v10 M372,22v16 M380,18v24 M388,26v8 M396,28v4" stroke-width="3.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="time-display">
+                            <span class="current-time">00:00</span> / <span class="duration-time">00:24</span>
+                        </div>
+                    </div>
+
+                    <div class="player-buttons">
+                        <button class="btn-prev" aria-label="Anterior">⏮</button>
+                        <button class="controls" aria-label="Reproduzir">▶</button>
+                        <button class="btn-next" aria-label="Próximo">⏭</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tracklist-container">
+                <div class="tracklist">
+                    <div class="track-item active" data-src="hoodtrap.mp3">
+                        <span>01</span> HOOD TRAP <span class="time">00:24</span>
+                        <div class="equalizer"><div></div><div></div><div></div><div></div></div>
+                    </div>
+                    <div class="track-item" data-src="darktrap.mp3">
+                        <span>02</span> DARK TRAP <span class="time">00:22</span>
+                        <div class="equalizer"><div></div><div></div><div></div><div></div></div>
+                    </div>
+                    <div class="track-item" data-src="vibe.mp3">
+                        <span>03</span> VIBE <span class="time">00:14</span>
+                        <div class="equalizer"><div></div><div></div><div></div><div></div></div>
+                    </div>
+                    <div class="track-item" data-src="melodic.mp3">
+                        <span>04</span> VIBE 2 <span class="time">00:14</span>
+                        <div class="equalizer"><div></div><div></div><div></div><div></div></div>
+                    </div>
+                </div>
+                <button class="btn-see-all">VER MAIS PRÉVIAS</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="benefits-section">
+        <h2>POR QUE ESCOLHER O <span>VORTEX VOL.1</span>?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-gem"></i></div>
+                <h3>BEATS ÚNICOS</h3>
+                <p>Beats autênticos, sem type beats genéricos.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                <h3>PRONTOS PARA GRAVAR</h3>
+                <p>Feito especialmente para artistas independentes.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-sliders-h"></i></div>
+                <h3>ALTA QUALIDADE</h3>
+                <p>Mixagem e masterização de qualidade nos beats.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>100% ROYALTY FREE</h3>
+                <p>Use em todas as plataformas e monetize suas músicas.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                <h3>SUPORTE</h3>
+                <p>Suporte sempre que você precisar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estrutura Principal Corrigida com base na Imagem de Referência -->
+    <section class="main-info-section">
+        <div class="info-grid-container">
+            
+            <!-- Card da Esquerda: O Que Você Recebe -->
+            <div class="receive-column">
+                <h2>O QUE VOCÊ <span>RECEBE</span></h2>
+                <div class="receive-content-inner">
+                    <div class="receive-list">
+                        <div class="receive-item">
+                            <div class="icon-box"><i class="fas fa-music"></i></div>
+                            <div class="text">
+                                <h3>20 Beats</h3>
+                                <p>20 beats de trap</p>
+                            </div>
+                        </div>
+                        <div class="receive-item">
+                            <div class="icon-box"><i class="fas fa-file-audio"></i></div>
+                            <div class="text">
+                                <h3>WAV</h3>
+                                <p>Arquivos em alta qualidade</p>
+                            </div>
+                        </div>
+                        <div class="receive-item">
+                            <div class="icon-box"><i class="fas fa-ban"></i></div>
+                            <div class="text">
+                                <h3>Sem Tags</h3>
+                                <p>Beats limpos</p>
+                            </div>
+                        </div>
+                        <div class="receive-item">
+                            <div class="icon-box"><i class="fas fa-certificate"></i></div>
+                            <div class="text">
+                                <h3>Licença de Uso</h3>
+                                <p>100% Royalty Free</p>
+                            </div>
+                        </div>
+                        <div class="receive-item">
+                            <div class="icon-box"><i class="fas fa-download"></i></div>
+                            <div class="text">
+                                <h3>Envio direto ao seu email</h3>
+                                <p>De imediato após a compra</p>
+                            </div>
+                        </div>
+                        <div class="receive-item">
+                            <div class="icon-box"><i class="fas fa-folder"></i></div>
+                            <div class="text">
+                                <h3>Pasta Organizada</h3>
+                                <p>Tudo separado e nomeado</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="receive-image-wrapper">
+                        <img src="capadapasta.png" alt="Vortex Folder" class="folder-3d-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card da Direita: FAQ -->
+            <div id="faq" class="faq-column">
+                <h2>DÚVIDAS <span>FREQUENTES</span></h2>
+                <div class="faq-wrapper">
+                    <div class="faq-item">
+                        <div class="faq-question">Posso monetizar minhas músicas? <span>▼</span></div>
+                        <div class="faq-content"><p>Sim! Todos os beats são 100% Royalty Free. Você pode lançar suas músicas nas plataformas de streaming e monetizar normalmente, só não ative o content id para não prejudicar outras pessoas que comprarem o pack.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Recebo os beats na hora? <span>▼</span></div>
+                        <div class="faq-content"><p>Sim! O envio é feito de forma automática e imediata ao seu email logo após a aprovação do seu pagamento.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Em qual formato recebo? <span>▼</span></div>
+                        <div class="faq-content"><p>Você receberá os arquivos no formato WAV.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Posso redistribuír para outras pessoas ou revender os beats? <span>▼</span></div>
+                        <div class="faq-content"><p>A licença só é para quem adquiriu o pack. Não é permitido a revenda ou redistribuição dos beats isolados.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Os beats possuem tags? <span>▼</span></div>
+                        <div class="faq-content"><p>Não! Todos os beats são entregues totalmente limpos, sem nenhuma tag.</p></div>
+                    </div>
+                </div>
+                <button class="btn-faq-more">VER TODAS AS RESPOSTAS</button>
+            </div>
+        </div>
+
+        <!-- Banner Horizontal Inferior (Design de Conversão Amplo) -->
+        <div class="cta-bottom-banner">
+            <div class="cta-banner-left">
+                <p class="cta-banner-tagline">INVISTA NA SUA CARREIRA</p>
+                <h2>JOGUE O JOGO.</h2>
+                <p class="cta-banner-desc">Não perca tempo, Adquira agora o <strong>VORTEX VOL.1</strong> e eleve o nível.</p>
+            </div>
+            <div class="cta-banner-right">
+                <div class="cta-banner-price-box">
+                    <span class="price-label">POR APENAS</span>
+                    <h3 class="card-price">R$ 40,00</h3>
+                </div>
+                <a href="https://pay.cakto.com.br/i5j4m5t_954325" class="btn-card-buy" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-shopping-cart"></i> COMPRAR AGORA
+                </a>
+                <div class="security-badge-mini">
+                    <i class="fas fa-shield-alt"></i> Compra 100% segura
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="security-footer">
+        <div class="footer-badges-container">
     
-    .social-popup-icon {
-        width: 32px;
-        height: 32px;
+    <!-- Item 1 -->
+    <div class="badge-item">
+        <div class="badge-icon-box">
+            <i class="bi bi-shield-lock"></i>
+        </div>
+        <div class="badge-text">
+            <span class="badge-title">PAGAMENTO SEGURO</span>
+            <span class="badge-subtitle">Ambiente 100% protegido</span>
+        </div>
+    </div>
+    
+    <!-- Item 2 -->
+    <div class="badge-item">
+        <div class="badge-icon-box">
+            <i class="bi bi-lightning-charge"></i>
+        </div>
+        <div class="badge-text">
+            <span class="badge-title">ACESSO IMEDIATO</span>
+            <span class="badge-subtitle">Download liberado na hora</span>
+        </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="badge-item">
+        <div class="badge-icon-box">
+            <i class="bi bi-shield-check"></i>
+        </div>
+        <div class="badge-text">
+            <span class="badge-title">GARANTIA</span>
+            <span class="badge-subtitle">7 dias de garantia</span>
+        </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="badge-item">
+        <div class="badge-icon-box">
+            <i class="bi bi-headset"></i>
+        </div>
+        <div class="badge-text">
+            <span class="badge-title">SUPORTE DEDICADO</span>
+            <span class="badge-subtitle">Atendimento via instagram</span>
+        </div>
+    </div>
+
+    </footer>
+
+    <div id="modal-faixas" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>PRÉVIAS</h2>
+            <div class="modal-tracklist">
+                <div class="track-item">
+                    <span>05</span> PHILLY DRILL <span class="time">00:24</span>
+                    <div class="equalizer"><div></div><div></div><div></div></div>
+                </div>
+                <div class="track-item">
+                    <span>06</span> MELODIC <span class="time">00:22</span>
+                    <div class="equalizer"><div></div><div></div><div></div></div>
+                </div>
+                <div class="track-item">
+                    <span>07</span> MELODIC 2 <span class="time">00:14</span>
+                    <div class="equalizer"><div></div><div></div><div></div></div>
+                </div>
+                <div class="track-item">
+                    <span>08</span> DARK TRAP 2 <span class="time">00:14</span>
+                    <div class="equalizer"><div></div><div></div><div></div></div>
+                </div>
+                <a href="https://pay.cakto.com.br/i5j4m5t_954325" class="btn-modal-buy" target="_blank" rel="noopener noreferrer">GARANTIR O PACK</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audio = new Audio();
+        
+        const playBtn = document.querySelector('.controls');
+        const prevBtn = document.querySelector('.btn-prev');
+        const nextBtn = document.querySelector('.btn-next');
+        const trackItems = document.querySelectorAll('.tracklist .track-item');
+        const currentTrackTitle = document.querySelector('.track-info h3');
+        const currentTimeDisplay = document.querySelector('.current-time');
+        const durationTimeDisplay = document.querySelector('.duration-time');
+        const waveformProgress = document.querySelector('.waveform-progress');
+
+        let currentIndex = 0;
+
+        function loadTrack(index) {
+            currentIndex = index;
+            const item = trackItems[currentIndex];
+            
+            trackItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+
+            let trackName = item.textContent.replace(item.querySelector('span').innerText, '').trim();
+            if(item.querySelector('.time')) {
+                const timeText = item.querySelector('.time').innerText;
+                trackName = trackName.replace(timeText, '').trim();
+                durationTimeDisplay.innerText = timeText; 
+            }
+            
+            const trackNumber = item.querySelector('span').innerText;
+            currentTrackTitle.innerText = `${trackNumber} - ${trackName}`;
+
+            audio.src = item.getAttribute('data-src');
+            currentTimeDisplay.innerText = "00:00";
+            if (waveformProgress) waveformProgress.style.width = '0%';
+        }
+
+        loadTrack(0);
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play().catch(e => console.log("Aviso: Insira arquivos válidos de áudio na pasta raiz."));
+                playBtn.innerHTML = '⏸';
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '▶';
+            }
+        }
+
+        playBtn.addEventListener('click', togglePlay);
+
+        trackItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                loadTrack(index);
+                audio.play().catch(e => {});
+                playBtn.innerHTML = '⏸';
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex >= trackItems.length) nextIndex = 0; 
+            loadTrack(nextIndex);
+            audio.play().catch(e => {});
+            playBtn.innerHTML = '⏸';
+        });
+
+        prevBtn.addEventListener('click', () => {
+            let prevIndex = currentIndex - 1;
+            if (prevIndex < 0) prevIndex = trackItems.length - 1; 
+            loadTrack(prevIndex);
+            audio.play().catch(e => {});
+            playBtn.innerHTML = '⏸';
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const current = audio.currentTime;
+            const duration = audio.duration || 1; 
+            
+            const mins = Math.floor(current / 60).toString().padStart(2, '0');
+            const secs = Math.floor(current % 60).toString().padStart(2, '0');
+            currentTimeDisplay.innerText = `${mins}:${secs}`;
+            
+            const progressPercent = (current / duration) * 100;
+            if (waveformProgress) {
+                waveformProgress.style.width = `${progressPercent}%`;
+            }
+        });
+
+        // FAQ ACCORDION SYSTEM
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        const btnVerTodasFaq = document.querySelector('.btn-faq-more');
+        let todasAbertas = false;
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const content = item.querySelector('.faq-content');
+                const arrow = question.querySelector('span');
+                
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.faq-content').style.maxHeight = null;
+                        otherItem.querySelector('.faq-question span').innerText = '▼';
+                    }
+                });
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    arrow.innerText = '▼';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    arrow.innerText = '▲';
+                }
+            });
+        });
+
+        if (btnVerTodasFaq) {
+            btnVerTodasFaq.addEventListener('click', (e) => {
+                e.preventDefault();
+                todasAbertas = !todasAbertas;
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    const content = item.querySelector('.faq-content');
+                    const arrow = item.querySelector('.faq-question span');
+                    
+                    if (content) {
+                        content.style.maxHeight = todasAbertas ? content.scrollHeight + "px" : null;
+                    }
+                    if (arrow) {
+                        arrow.innerText = todasAbertas ? '▲' : '▼';
+                    }
+                });
+
+                btnVerTodasFaq.innerText = todasAbertas ? 'RECOLHER TODAS AS RESPOSTAS' : 'VER TODAS AS RESPOSTAS';
+            });
+        }
+        
+        // MODAL
+        const modal = document.getElementById('modal-faixas');
+        const btnSeeAll = document.querySelector('.btn-see-all');
+        const btnClose = document.querySelector('.close-modal');
+
+        if (btnSeeAll) {
+            btnSeeAll.addEventListener('click', () => {
+                modal.style.display = 'flex';
+            });
+        }
+
+        if (btnClose) {
+            btnClose.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+    <div id="social-proof-popup" class="social-popup">
+    <div class="social-popup-icon">
+        <i class="bi bi-fire"></i>
+    </div>
+    <div class="social-popup-content">
+        <p class="social-popup-text"><span id="sp-name">100% Royalty-Free</span> <strong></strong></p>
+        <span class="social-popup-time" id="sp-time"></span>
+    </div>
+</div>
+
+<script>
+    // Lista de vantagens reais do VORTEX VOL.1
+    const popupFeaturesList = [
+        { title: "100% Royalty-Free", desc: "Use os beats e fique com 100% dos lucros." },
+        { title: "Alta qualidade", desc: "Arquivos em WAV de alta qualidade." },
+        { title: "Acesso Imediato", desc: "O link para download do pack chega no seu e-mail logo após a compra." },
+        { title: "Beats Sem Tags", desc: "Beats limpos sem tags." },
+        { title: "Workflow Rápido", desc: "Pasta organizada por BPM e Key." },
+        { title: "Preço Promocional", desc: "Aproveite o preço de lançamento de R$ 40,00 antes que o lote mude!" }
+    ];
+
+    const socialPopupEl = document.getElementById('social-proof-popup');
+    const spNameEl = document.getElementById('sp-name');
+    const spTimeEl = document.getElementById('sp-time');
+
+    let popupCurrentIndex = 0;
+
+    function triggerSocialPopup() {
+        const currentFeature = popupFeaturesList[popupCurrentIndex];
+        
+        // Injeta os textos de vantagens no pop-up
+        spNameEl.innerHTML = `<strong>${currentFeature.title}</strong>`;
+        spTimeEl.innerText = currentFeature.desc;
+
+        socialPopupEl.classList.add('show');
+
+        setTimeout(() => {
+            socialPopupEl.classList.remove('show');
+            popupCurrentIndex = (popupCurrentIndex + 1) % popupFeaturesList.length;
+            
+            // Espera 12 segundos escondido e mostra a próxima vantagem
+            setTimeout(triggerSocialPopup, 12000);
+        }, 5000); // Fica 5 segundos na tela para dar tempo do cara ler o texto mais longo
     }
-}
 
-/* ==========================================================================
-   ELEMENTO SCROLL INDICATOR (100% CENTRALIZADO)
-   ========================================================================== */
-.scroll-indicator-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;        /* Ocupa a largura total do bloco para garantir o centro */
-    margin-top: 25px;   /* Espaçamento em relação ao Compra Segura */
-    margin-left: 0;     /* Removido o desvio para alinhar perfeitamente */
-    cursor: pointer;
-    gap: 2px;
-}
-
-.scroll-arrow {
-    width: 16px;
-    height: 16px;
-    border-left: 3px solid #ffffff;
-    border-bottom: 3px solid #ffffff;
-    transform: rotate(-45deg); /* Transforma o quadrado em seta */
-    opacity: 0.4;
-    animation: arrowGlowMove 1.8s infinite ease-in-out;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
-}
-
-/* Efeito cascata na segunda seta */
-.scroll-arrow:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-/* Animação de pulso e brilho neon */
-@keyframes arrowGlowMove {
-    0% {
-        transform: translateY(0) rotate(-45deg);
-        opacity: 0.3;
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-    }
-    50% {
-        transform: translateY(8px) rotate(-45deg);
-        opacity: 1;
-        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
-    }
-    100% {
-        transform: translateY(0) rotate(-45deg);
-        opacity: 0.3;
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-    }
-}
-
-/* Ajuste Mobile */
-@media (max-width: 480px) {
-    .scroll-indicator-container {
-        margin-top: 20px;
-    }
-    .scroll-arrow {
-        width: 14px;
-        height: 14px;
-        border-left-width: 2.5px;
-        border-bottom-width: 2.5px;
-    }
-}
-
-/* ==========================================================================
-   LAYOUT CENTRALIZADO DA HERO SECTION (DESKTOP E MOBILE)
-   ========================================================================== */
-
-/* 1. CONTAINER PRINCIPAL (O bloco que envolve o pack + os textos) */
-.hero-container { /* Subastitua pela sua classe principal (ex: .hero, .main-hero) */
-    display: flex;
-    flex-direction: column;   /* Muda de lado-a-lado para cima-e-baixo */
-    align-items: center;      /* Centraliza todos os blocos na horizontal */
-    text-align: center;       /* Centraliza os títulos e textos normais */
-    max-width: 1000px;        /* Limita a largura máxima para o design não espalhar */
-    margin: 0 auto;           /* Centraliza o bloco inteiro na tela do PC */
-    padding: 50px 20px;       /* Espaçamento interno */
-}
-
-/* 2. CAIXA DA IMAGEM DO PACK (MOCKUP) */
-.hero-image-box { /* Substitua pela classe que envolve a foto do seu pack */
-    max-width: 400px;         /* Mantém o tamanho do pack controlado e proporcional */
-    width: 100%;
-    margin-bottom: 40px;      /* Cria um recuo perfeito entre a imagem e os textos abaixo */
-}
-
-/* 3. BLOCO DE CONTEÚDO (Títulos, Grid, Preço e Botão) */
-.hero-content-box { /* Substitua pela classe que envolve a sua coluna de textos */
-    display: flex;
-    flex-direction: column;
-    align-items: center;      /* Força elementos como Preço e Botão a irem pro meio exato */
-    width: 100%;
-}
-
-/* 4. O GRID DE VANTAGENS (BEATS, SEM TAGS, KEY & BPM, DOWNLOAD) */
-.features-grid { /* Substitua pela classe do seu grid de 4 benefícios */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mantém o formato profissional de 2 colunas */
-    gap: 25px 40px;           /* Espaçamento entre as linhas e colunas do grid */
-    max-width: 540px;         /* Limita o tamanho do grid para ele ficar centralizado e elegante */
-    margin: 35px auto;        /* Afasta dos textos de cima e centraliza o bloco na tela */
-    text-align: left;         /* MANTENHA LEFT: O texto alinhado com o ícone fica muito mais premium */
-}
-
-/* ==========================================================================
-   5. CENTRALIZAÇÃO DA SEÇÃO DE PRÉVIAS
-   ========================================================================== */
-.section-header {
-    display: flex;
-    flex-direction: column; /* Empilha o título e o subtítulo */
-    align-items: center;    /* Centraliza horizontalmente */
-    text-align: center;     /* Garante centralização do texto */
-    width: 100%;
-    margin: 0px 0 30px 0;  /* Espaçamento superior e inferior para separar do resto */
-}
-
-/* Garante que o container tenha posição relativa */
+    // Inicia o efeito 10 segundos após a página carregar
+    window.addEventListener('load', () => {
+        setTimeout(triggerSocialPopup, 10000);
+    });
+</script>
