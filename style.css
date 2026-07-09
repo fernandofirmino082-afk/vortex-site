@@ -433,7 +433,7 @@ nav a:hover {
 }
 
 .player-buttons .controls {
-    background: #e11d1d;
+    background: #ff0000; /* Vermelho puro e vivo */
     color: #fff;
     width: 52px;
     height: 52px;
@@ -442,11 +442,13 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    box-shadow: 0 4px 20px rgba(211, 53, 53, 0.4); /* Altere para um vermelho sutil */
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6); /* Brilho também em vermelho puro */
+    border: none; /* Garante que não tenha borda nativa interferindo */
+    cursor: pointer;
 }
 
 .player-buttons .controls:hover {
-    background: #ff2a2a;
+    background: #d60000; /* Vermelho levemente mais escuro ao passar o mouse */
     transform: scale(1.08);
 }
 
