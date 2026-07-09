@@ -450,11 +450,6 @@ nav a:hover {
     cursor: pointer;
 }
 
-.player-buttons .controls:hover {
-    background: #d60000; /* Vermelho levemente mais escuro ao passar o mouse */
-    transform: scale(1.08);
-}
-
 
 /* ============================== */
 /* FORÇA O ÍCONE DE PLAY A FICAR BRANCO */
