@@ -450,9 +450,13 @@ nav a:hover {
     cursor: pointer;
 }
 
-.player-buttons .controls:hover {
-    background: #d60000; /* Vermelho levemente mais escuro ao passar o mouse */
-    transform: scale(1.08);
+/* Adicione isso logo abaixo do seu bloco .controls:hover */
+
+.player-buttons .controls:active,
+.player-buttons .controls:focus {
+    background: #e11d1d; /* Mantenha a cor original ou a cor que desejar */
+    transform: scale(1.05); /* Opcional: ajuste o efeito de clique */
+    outline: none; /* Remove a borda padrão de foco do navegador */
 }
 
 /* ============================== */
