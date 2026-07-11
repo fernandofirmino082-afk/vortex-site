@@ -678,12 +678,25 @@ nav a:hover {
     flex-direction: column;
     gap: 15px;
     flex: 1;
+    width: 100%;
 }
 
+/* Transformando os itens em blocos premium encapsulados */
 .receive-item {
+    background: #0b0b0b !important;   /* O mesmo tom escuro do seu player principal */
+    border: 1px solid #141414 !important; /* A borda fina e discreta */
+    border-radius: 12px !important;       /* Cantos arredondados elegantes */
+    padding: 18px 20px !important;        /* Espaço interno para o texto respirar */
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito extra: quando o cliente passa o mouse, o bloquinho flutua e acende a borda em vermelho */
+.receive-item:hover {
+    border-color: rgba(225, 29, 29, 0.4) !important;
+    transform: translateY(-2px);
 }
 
 .receive-item .icon-box {
@@ -1349,11 +1362,9 @@ nav a:hover {
 }/* Garante que o container tenha posição relativa para os raios ficarem dentro */
 .hero {
     position: sticky;
-    background-color: #000;
-    /* Isso cria um foco de luz vindo do centro, muito discreto */
-    background: radial-gradient(circle at 50% 50%, #1a0000 0%, #000 70%);
-
+    background-color: #000000; /* Fundo 100% preto profundo */
 }
+
 /* Isso fará com que tudo fique lado a lado */
 .header-right {
     display: flex;
